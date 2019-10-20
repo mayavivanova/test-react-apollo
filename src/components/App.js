@@ -4,8 +4,13 @@ import Map from './Map'
 function App(props) {
   return (
     <div>
-     <Map client={props.client}/>
+      <div className="header"><span>World Map</span></div>   
+      <div className="map">   
+        <Map client={props.client}/>
+      </div>
+
     </div>
+    
   );
 }
 

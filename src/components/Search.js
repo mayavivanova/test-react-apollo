@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
-import Country from './Country'
+// import Country from './Country'
 
 const FEED_SEARCH_QUERY = gql`
   query searchCountries ($filter: String!) {

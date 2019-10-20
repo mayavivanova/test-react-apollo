@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'HelveticaInsetat LT';
+  src: url('../assets/fonts/Helvetica\ Inserat\ LT.ttf');
+  font-style: normal;
+  font-weight: 400;
+}
+
+$font-family-main: 'Open Sans', sans-serif;;
+$font-family-second: 'HelveticaInsetat LT';
+
+$font-color: #3e3e3e;
+
+body {
+  background-color: #b3d7db;
+  padding: 0;
+  margin: 0;
+  color: $font-color;
+  font-family: $font-family-main;
+  font-weight: 300;
+
+  .header {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+
+    span {
+      display: block;
+      max-width: 1025px;
+      padding: 30px;
+      margin: 0 auto;
+      font-size: 50px;
+    }
+  }
+
+  .map {
+    display: block;
+    position: relative;
+    max-width: 1025px;
+    height: 520px;
+    margin: 0 auto;
+    
+
+  .continent {
+    position: absolute;
+    cursor: pointer;
+
+    
+
+    &.AF {
+      top: 300px;
+      right: 200px;
+
+      .img {        
+        width: 125px;
+        height: 140px;
+        background-image: url(../assets/images/africa.svg);        
+      }
+    }
+
+    &.AN {
+      bottom: 0;
+      left: 170px;
+
+      .img {
+        width: 395px;
+        height: 47px;
+        background-image: url(../assets/images/antarctica.svg);
+      }
+
+      // .continentName {
+      //   position: absolute;
+      //   top: 0;
+      //   right: 0;
+      // }
+    }
+
+    &.AS {
+      top: 0;
+      right: 0;
+
+      .img {
+        width: 285px;
+        height: 220px;
+        background-image: url(../assets/images/asia.svg);
+      }
+    }
+
+    &.EU {
+      top: 20px;
+      right: 220px;
+
+      .img {
+        width: 205px;
+        height: 185px;
+        background-image: url(../assets/images/europe.svg);
+      }
+    }
+
+    
+
+    &.OC {
+      bottom: 100px;
+      right: 0;
+
+      .img {
+        width: 120px;
+        height: 95px;
+        background-image: url(../assets/images/oceania.svg);
+      }
+    }
+
+    &.NA {
+      top: 10px;
+      left: 0;
+
+      .img {
+        width: 290px;
+        height: 288px;
+        background-image: url(../assets/images/north-a.svg);
+      }
+    }
+
+    &.SA {
+      top: 295px;
+      left: 160px;
+
+      .img {
+        width: 90px;
+        height: 140px;
+        background-image: url(../assets/images/south-a.svg);
+      }
+    }
+
+    .img {
+      display: block;      
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.8;
+    }
+
+    &:hover .img{
+      opacity: 1;
+    }
+  }
+  }
+}
+
+
+
+
+
+
+
+
+

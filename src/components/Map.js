@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import Countries from './Countries';
-import Search2 from './Search2'
+import Search from './Search'
 
 
 const GET_CONTINENTS = gql`
@@ -26,7 +26,7 @@ class Map extends Component {
 
     render() {
       return (
-          <div>
+          <div className="map">
         <Query query={GET_CONTINENTS} client={this.props.client}>
         {({loading, error, data}) => {
           if (loading) return <p>Loading...</p>;
@@ -37,7 +37,8 @@ class Map extends Component {
                   <div 
                     className={`continent ${continent.code}`} 
                     key={continent.name}
-                    onClick={this.onContinentSelect}>{continent.name}</div>
+                    onClick={this.onContinentSelect}>
+                      <span className="img" onClick={this.onContinentSelect}></span>{continent.name}</div>
               ))}
               
               </div>
@@ -46,7 +47,7 @@ class Map extends Component {
       </Query>
       {this.state.continentCode? 
           <div>
-            <Search2/>
+            <Search/>
             <Countries continentCode={this.state.continentCode}/>
           </div>: null        
         }
