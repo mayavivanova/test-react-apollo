@@ -27,14 +27,12 @@ render() {
  
 
   return (
-    <div>
-      <div>
+    <div className="search">
       <input  
           type='text'
           onChange={() => this.onHandleChange()}
           placeholder='Search...'/>
           <button onClick={() => this._executeSearch()}>Search Now</button>
-      </div>
       {/* {this.state.countries.map((country, index) => (
           <Country
               key={country.id}
