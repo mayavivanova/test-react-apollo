@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import gql from 'graphql-tag';
-import {Query} from 'react-apollo';
-import Countries from './Countries';
-import Search from './Search'
+import React, {Component} from 'react'
+import gql from 'graphql-tag'
+import {Query} from 'react-apollo'
+import Countries from './Countries'
 import ScrollableAnchor from 'react-scrollable-anchor'
+import PropTypes from 'prop-types'
 
 const GET_CONTINENTS = gql`
   {
@@ -30,8 +30,8 @@ class Map extends Component {
         <div className="map">
           <Query query={GET_CONTINENTS} client={this.props.client}>
           {({loading, error, data}) => {
-            if (loading) return <p>Loading...</p>;
-            if (error) return <p>{error.message}</p>;
+            if (loading) return <p>Loading...</p>
+            if (error) return <p>{error.message}</p>
             return (
                 <div>
                     {data.continents.map(continent => (
@@ -53,8 +53,7 @@ class Map extends Component {
       <ScrollableAnchor id={'countriesListContainer'}>
         <div className="countriesListContainer">
         {this.state.continentCode?  
-              <div className="countriesList"> 
-                <Search/>              
+              <div className="countriesList">                              
                 <Countries continentCode={this.state.continentCode}/>
               </div>
               : null    
@@ -68,3 +67,7 @@ class Map extends Component {
 }
 
 export default Map
+
+Map.propTypes = {
+  client: PropTypes.object
+}

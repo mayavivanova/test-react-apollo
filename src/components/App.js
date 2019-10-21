@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'
 import Map from './Map'
+import PropTypes from 'prop-types'
 
 function App(props) {
   return (
@@ -17,4 +18,8 @@ function App(props) {
   );    
 }
 
-export default App;
+export default App
+
+App.propTypes = {
+  client: PropTypes.object
+}

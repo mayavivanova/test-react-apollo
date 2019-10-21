@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import gql from 'graphql-tag';
-import {Query} from 'react-apollo';
+import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import {Query} from 'react-apollo'
+import PropTypes from 'prop-types'
 
 const GET_COUNTRY = gql`
   query Country ($code: String!) {
@@ -57,3 +58,8 @@ class Country extends Component {
 }
 
 export default Country
+
+Country.propTypes = {
+  client: PropTypes.object,  
+  countryCode: PropTypes.string
+}
