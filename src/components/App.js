@@ -1,13 +1,16 @@
 import React from 'react'
 import Map from './Map'
 import PropTypes from 'prop-types'
+import Search from './Search'
 
 function App(props) {
   return (
     <div>
       <div className="header">
-        <h1>World Map</h1>        
-      </div>   
+        <h1>World Map</h1>   
+        <Search/>     
+      </div>  
+       
       <div className="mapContainer" >   
         <Map client={props.client}/>
       </div>

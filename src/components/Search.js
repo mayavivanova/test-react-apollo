@@ -1,26 +1,54 @@
 import React, { Component } from 'react'
+import gql from 'graphql-tag'
+import {Query} from 'react-apollo'
 import PropTypes from 'prop-types'
-import Countries from './Countries'
+import Country from './Country'
+
+const GET_COUNTRIES = gql`
+  {
+    countries {
+      name
+      code
+    }
+  }
+`;
 
 class Search extends Component {
 
   state = {
-    continentCode: this.props.continentCode,
-    searchText: ''
+    country: ''
   }
 
-  onSearch = () => {
-    return this.state.searchText ? <Countries searchText={this.state.searchText} continentCode={this.state.continentCode}/> : null
-  }
+  onCountrySelect = (event) => { 
+      this.setState({country: event.target.value})    
+    
+  };
 
   render() {
     return (
       <div className="search">
-        <input  
-          type='text'
-          onChange={(event) => this.setState({searchText: event.target.value})}
-          placeholder='Search...'/>
-          <button onClick={this.onSearch}>Search Now</button>
+        <Query query={GET_COUNTRIES} client={this.props.client}>
+          {({loading, error, data}) => {
+            if (loading) return <p>Loading...</p>;
+            if (error) return <p>{error.message}</p>;
+            return (
+              <div>
+                  <select 
+                    value={this.state.country}
+                    onChange = {this.onCountrySelect}>
+                    {data.countries.map(country => (
+                      <option 
+                        key={country.code} 
+                        value={country.code}>
+                          {country.name}
+                      </option>
+                  ))}
+                </select>                
+              </div>
+            );
+          }}
+        </Query>
+        {this.state.country ? <Country countryCode={this.state.country}/> : null}
       </div>
     )    
   }

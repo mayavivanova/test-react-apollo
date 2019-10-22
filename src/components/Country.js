@@ -26,7 +26,7 @@ class Country extends Component {
         <Query query={GET_COUNTRY} client={this.props.client} variables={code}>    
             {({loading, error, data}) => {
               if (loading) return <p>Loading...</p>;
-              if (error) return <p>{error.message}</p>;
+              if (error) return <p>Error. Try Again</p>;
               
               const name = data.country.name 
               const currency = data.country.currency
@@ -61,5 +61,6 @@ export default Country
 
 Country.propTypes = {
   client: PropTypes.object,  
-  countryCode: PropTypes.string
+  countryCode: PropTypes.string,
+  searchText: PropTypes.string
 }

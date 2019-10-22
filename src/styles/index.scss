@@ -28,8 +28,37 @@ body {
     background-color: #fff;
   }
 
+  .countryInfo {
+    position: relative;
+    display: block;
+    border-left: 4px solid #b3d7db;
+    padding: 0 10px;
+    margin: 15px 0;
+    font-size: 20px;
+    font-variant: small-caps;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;     
+    break-inside: avoid-column;   
+
+    .info {
+      padding: 0 0 20px 0;
+      font-size: 16px;
+    }
+
+    .infoName {
+      font-weight: bold;
+      padding: 0 0 20px 0;
+    }
+
+    .infoEl {
+      list-style-type: circle;
+      margin-left: 23px;
+    }
+  }
+
   .header {
     display: block;
+    position: relative;
     width: 100%;
     max-width: 1025px;
     margin: 0 auto;
@@ -37,14 +66,31 @@ body {
     text-align: left;
 
     h1 {
-      flex-direction: column;
-      flex: 2 0 0;
+      display: block;
       padding: 26px;
       margin: 0;
       font-size: 50px;
       font-weight: 300;
     }
 
+    .search {
+      display: block;
+      padding: 0 26px 26px;
+      margin: 10px 0;
+
+      select {
+        max-width: 200px;
+        padding: 6px;
+        color: #3e3e3e;
+      }
+
+      button {
+        background-color: #b3d7db;
+        border: 1px solid #b3d7db;
+        padding: 7px;
+        color: #3e3e3e;
+      }
+    }
   }
 
   .mapContainer {
@@ -140,47 +186,17 @@ body {
       -moz-column-count: 1;
       column-count: 1;                
 
-      .search {
-        display: block;
-        height: 30px;
-      }
-
       ul {
         list-style: none;
         padding: 0;
+        margin: 0;
 
         li {
           position: relative;   
           cursor: pointer;
           
         }
-      }
-        .countryInfo {
-          position: relative;
-          display: block;
-          border-left: 4px solid #b3d7db;
-          padding: 0 10px;
-          margin: 15px 0;
-          font-size: 20px;
-          font-variant: small-caps;
-          -webkit-column-break-inside: avoid;
-          page-break-inside: avoid;     
-          break-inside: avoid-column;   
-
-          .info {
-            padding: 0 0 20px 0;
-            font-size: 16px;
-          }
-          .infoName {
-            font-weight: bold;
-            padding: 0 0 20px 0;
-          }
-          .infoEl {
-            list-style-type: circle;
-            margin-left: 23px;
-          }
-
-        }
+      }        
     }
   }
 
@@ -203,6 +219,24 @@ body {
 
 @media screen and (min-width: 1025px) {
   body {
+    .header {
+      display: flex;
+      h1 {
+        flex-direction: column;
+        flex: 2 0 0;
+        padding: 26px;
+        margin: 0;
+        font-size: 50px;
+        font-weight: 300;
+      }
+
+      .search {
+        flex-direction: column;
+        padding: 0;
+        margin: 20px 0;
+      }
+    }
+
     .mapContainer {
       .map {
         .continent {
