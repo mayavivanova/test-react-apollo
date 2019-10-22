@@ -52,7 +52,8 @@ body {
 
     .infoEl {
       list-style-type: circle;
-      margin-left: 23px;
+      padding: 0;
+      margin: 0 0 0 23px;
     }
   }
 
@@ -78,16 +79,9 @@ body {
       padding: 0 26px 26px;
       margin: 10px 0;
 
-      select {
+      input {
         max-width: 200px;
         padding: 6px;
-        color: #3e3e3e;
-      }
-
-      button {
-        background-color: #b3d7db;
-        border: 1px solid #b3d7db;
-        padding: 7px;
         color: #3e3e3e;
       }
     }
@@ -111,10 +105,10 @@ body {
         background-repeat: no-repeat;
         background-size: contain;
         opacity: 0.8;
-        cursor: pointer;
         text-align: center;
         margin: 0 auto;
         padding: 20px 0 0 0;
+        cursor: pointer;
 
         
 
@@ -174,30 +168,30 @@ body {
     width: 100%;
     min-height: 297px;
     background-color: #fff;
+  }
 
-    .countriesList {
-      display: block;
-      position: relative;
-      max-width: 1025px;
-      padding: 26px;
-      margin: 0 auto;
-      font-size: 14px;
-      -webkit-column-count: 1;
-      -moz-column-count: 1;
-      column-count: 1;                
+  .countriesList {
+    display: block;
+    position: relative;
+    max-width: 1025px;
+    padding: 26px;
+    margin: 0 auto;
+    font-size: 14px;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;                
 
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
-        li {
-          position: relative;   
-          cursor: pointer;
-          
-        }
-      }        
-    }
+      li {
+        position: relative;   
+        cursor: pointer;
+        
+      }
+    }        
   }
 
   .goToTop {

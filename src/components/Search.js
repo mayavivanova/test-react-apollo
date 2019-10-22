@@ -19,11 +19,6 @@ class Search extends Component {
     country: ''
   }
 
-  onCountrySelect = (event) => { 
-      this.setState({country: event.target.value})    
-    
-  };
-
   render() {
     return (
       <div className="search">
@@ -31,24 +26,22 @@ class Search extends Component {
           {({loading, error, data}) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>{error.message}</p>;
+
             return (
               <div>
-                  <select 
-                    value={this.state.country}
-                    onChange = {this.onCountrySelect}>
-                    {data.countries.map(country => (
-                      <option 
-                        key={country.code} 
-                        value={country.code}>
-                          {country.name}
-                      </option>
-                  ))}
-                </select>                
+                <input
+                  type="text"
+                  placeholder="Search by country name"
+                  onChange={(event) => this.setState({country: event.target.value})}/>
+                 {data.countries.map(country => {
+                    if (this.state.country && country.name === this.state.country)
+                      return <Country countryCode={country.code} key={country.code}/>
+                    else return null
+                  })}
               </div>
             );
           }}
         </Query>
-        {this.state.country ? <Country countryCode={this.state.country}/> : null}
       </div>
     )    
   }

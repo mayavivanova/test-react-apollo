@@ -39,6 +39,7 @@ class Countries extends Component {
             const { countryCode } = this.state
 
             const countriesEl = countriesToRender.map(country => (
+              
                 <li 
                   key={country.code}
                   className={country.code}
